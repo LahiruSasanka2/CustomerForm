@@ -65,6 +65,7 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 
 <script>
+    var customersDetails=[];
  $("#txtCustomerID").focus();
         
         $("#btnSave").click(function(){
@@ -80,9 +81,49 @@
             $("#txtCustomerSalary").val("");
             $("#txtCustomerTell").val("");
             $("tbody").append("<tr><td>"+cid+"</td><td>"+fName+"</td><td>"+add+"</td><td>"+tele+"</td></tr>");
+
+            $("#tblCustomer tbody tr").off("click");
+            $("#tblCustomer tbody tr").click(function () {
+                var cusId = $(this).find("td:first-child").text();
+                var cusName = $(this).find("td:nth-child(2)").text();
+                var cusAddress = $(this).find("td:nth-child(3)").text();
+                var cusTele = $(this).find("td:nth-child(4)").text();
+                console.log(cusId);
+                $("#txtCustomerID").val(cusId);
+                $("#txtCustomerName").val(cusName);
+                $("#txtCustomerSalary").val(cusAddress);
+                $("#txtCustomerTell").val(cusTele);
+               
+            });
         });
        
+        
+            
+            $("#btnUpdate").click(function(){
+               
+                 var cid =  $("#txtCustomerID").val();
+                    var cname = $("#txtCustomerName").val();
+                    var cadd = $("#txtCustomerSalary").val();
+                    var ctele = $("#txtCustomerTell").val();
+                    var customerDetails = {};
+                    customerDetails.cid = cid;
+                    customerDetails.cname = cname;
+                    customerDetails.cadd = cadd;
 
+                    customersDetails.push(customerDetails);
+                for (var i = 0; i < customersDetails.length; i++) {
+                    
+                    var html = `<tr>
+                                    <td class="text-center">${cid}</td>
+                                    <td>${cname}</td>
+                                    <td>${cadd}</td>
+                                    <td>${ctele}</td>
+                                </tr>`;
+                            
+                    $("#tblCustomer tbody").append(html);
+                    
+                }
+            });
 </script>
 </body>
 </html>
