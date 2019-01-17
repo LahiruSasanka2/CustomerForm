@@ -39,6 +39,7 @@
                             <input type="text" class="form-control" id="txtCustomerTell" placeholder="Enter Telephone">
                         </div>
                         <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+                        <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
                     </form>
                 </div>
             </div>
@@ -54,12 +55,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <!-- <th scope="row">1</th> -->
-                        <!-- <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td> -->
-                    </tr>
+                
                 </tbody>
             </table>
         </div>
@@ -73,25 +69,17 @@
         
         $("#btnSave").click(function(){
             console.log("HII");
-            
             var cid = $("#txtCustomerID").val();
              var fName = $("#txtCustomerName").val();
              var add = $("#txtCustomerSalary").val();
              var tele = $("#txtCustomerTell").val();
             console.log(cid);
-        
-
             alert("Save to the Table!!!");
             $("#txtCustomerID").val("");
             $("#txtCustomerName").val("");
             $("#txtCustomerSalary").val("");
             $("#txtCustomerTell").val("");
-
-            
-
             $("tbody").append("<tr><td>"+cid+"</td><td>"+fName+"</td><td>"+add+"</td><td>"+tele+"</td></tr>");
-            
-       
         });
        
 
