@@ -81,6 +81,12 @@
     var customersDetails=[];
  $("#txtCustomerID").focus();
         
+ $("#btnNewCustomer").click(function(){
+    $("#txtCustomerID").prop('disabled',false);
+    $("#txtCustomerName").prop('disabled',false);
+    $("#txtCustomerSalary").prop('disabled',false);
+    $("#txtCustomerTell").prop('disabled',false);
+ });
         $("#btnSave").click(function(){
             console.log("HII");
             var cid = $("#txtCustomerID").val();
@@ -124,8 +130,9 @@
                     customerDetails.cadd = cadd;
 
                     customersDetails.push(customerDetails);
-                for (var i = 0; i < customersDetails.length; i++) {
+                for (var i = 0; i < $("#tblCustomer tbody").length; i++) {
                     
+                    // if(cid == $("#tblCustomer tbody tr"))
                     var html = `<tr>
                                     <td class="text-center">${cid}</td>
                                     <td>${cname}</td>
